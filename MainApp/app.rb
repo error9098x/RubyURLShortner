@@ -44,13 +44,23 @@ not_found do
   erb :not_found, :layout => :error_layout
 end
 # Route for shortening URL
+# Route for shortening URL
 get '/shorten' do
   long_url = params[:url]
-  short_url = generate_short_url(long_url)
-  full_short_url = "#{request.base_url}/#{short_url}"
+  desired_length = params[:length].to_i
+  puts "Long URL: #{long_url}"
+  puts "Desired Length: #{desired_length}"
+  short_url = generate_short_url(long_url, desired_length)
+  error_message = nil
+  if short_url
+    full_short_url = "#{request.base_url}/#{short_url}"
+  else
+    error_message = "Error: Unable to generate a unique short URL. Please try again later or increase the URL length."
+  end
 
-  erb :shortened, locals: { short_url: full_short_url }
+  erb :shortened, locals: { short_url: full_short_url, error_message: error_message }
 end
+
 
 # Route for redirecting to long URL
 get '/:short_url' do
@@ -66,14 +76,19 @@ get '/:short_url' do
 end
 
 # Generate short URL
-# Generate short URL
-def generate_short_url(long_url)
+def generate_short_url(long_url,desired_length)
   short_url = find_existing_short_url(long_url)
-
+  attempts = 0
+  max_attempts = 20
   if short_url.nil?
     loop do
-      short_url = generate_random_string(5, 7)
+      short_url = generate_random_string(desired_length,desired_length)
       break unless short_url_exists?(short_url)
+      attempts += 1
+      if attempts >= max_attempts
+        short_url = nil
+        break
+      end
     end
 
     save_short_url(short_url, long_url)

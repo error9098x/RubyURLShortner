@@ -30,15 +30,24 @@
           </ul>
         </details>
       </li>
+      
     </ul>
+    <progress class="progress w-56" id ="progressBar" style="display:none;"></progress>
   </div>
 </div>
+
 </header>
 <body class="bg-base-200">
     <%= yield %>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </body>
 <script>
+const input= document.getElementById('inp'); 
+const image = document.getElementById('progressBar');
+
+input.addEventListener('click', () => {
+  image.style.display = "block"; 
+});
 particlesJS("particles-js", {
   "particles": {
     "number": {
