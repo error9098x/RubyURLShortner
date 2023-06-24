@@ -51,7 +51,11 @@ get '/:short_url' do
   puts "Long URL: #{long_url}"
   
   if long_url
-    redirect "https://" + long_url
+    if long_url.start_with?('http://') || long_url.start_with?('https://')
+      redirect long_url
+    else
+      redirect "https://" + long_url
+    end
   else
     "Short URL not found"
   end
