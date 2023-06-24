@@ -1,0 +1,69 @@
+
+<div id="particles-js"> 
+</div>  
+<main class="timer window w-screen h-screen grid grid-flow-col place-items-center" >
+  <main class="mockup-window border bg-base-300 min-w-fit max-w-64" >
+
+    <main class="bg-white flex flex-col gap-3 p-6 w-100">
+      <form id="myform" action="/shorten" method="get" class="form flex flex-col gap-3  ">
+
+       <label for="choice" class="w-full  p-20" >
+
+          <span class=" p-20">&zwj;</span>
+
+          <input   id="inp" type="text" name="url" placeholder="Shorten the link here ✨" class="w-full input input-bordered input-success " />
+    
+        </label> 
+        
+         
+        
+         
+        <label for="choice" class="w-full text-left">
+         
+          <span class="p-1 font-semibold">Chose from range</span>
+        </label>
+        <div class="w-full ">
+          <input id="lengthSlider" type="range" list="ranges" type="range" min="0" max="2" value="0" class="range range-primary range-xs" step="1" onchange="updateLengthValue()" />
+        <input type="hidden" name="length" id="lengthValue" value="6" />
+        <div class="w-full flex justify-between text-xs px-2">
+    
+            <span>Short</span>
+            <span>Shorter</span>
+            <span>Shortest</span>
+        </div>
+      </div>
+        <button class="btn btn-primary">Shorten URL
+        </button>
+
+      </form>
+    </main>
+  </main>
+</main>
+<script>
+  function updateLengthValue() {
+    const slider = document.getElementById("lengthSlider");
+    const lengthValue = document.getElementById("lengthValue");
+
+    switch (slider.value) {
+      case "0":
+        lengthValue.value = "6";
+        break;
+      case "1":
+        lengthValue.value = "4";
+        break;
+      case "2":
+        lengthValue.value = "3";
+        break;
+    }
+  }
+</script>
+<style>
+.bg-base-300 {
+    background-color: mediumspringgreen;
+}
+.navbar.bg-base-100 {
+    color: black;
+    background-color: mediumspringgreen;
+}
+
+</style>

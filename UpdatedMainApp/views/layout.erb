@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<title>URL Shortener - Make short links</title>
+    <head>
+        <!-- Required meta tags for mobile use -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+        <title>Welcome!</title>
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@3.1.6/dist/full.css" rel="stylesheet" type="text/css" />
+        <script src="https://cdn.tailwindcss.com"></script>
+        </head>
+<header>
+<div class="navbar bg-base-100">
+  <div class="flex-1">
+<a class="btn btn-ghost normal-case text-xl" href="/">
+  URL Shortner 😎  
+</a>  </div>
+  <div class="flex-none">
+    <ul class="menu menu-horizontal px-1">
+      <li><a href="https://github.com/error9098x/RubyURLShortner/tree/main/MainApp">Code 👩‍💻</a></li>
+      <li>
+        <details>
+          <summary>
+            More 👀
+          </summary>
+          <ul class="p-2 bg-base-100">
+            <li><a href="/about">About Me</a></li>
+            <li><a href="https://github.com/error9098x">My Github</a></li>
+          </ul>
+        </details>
+      </li>
+      
+    </ul>
+    <progress class="progress w-56" id ="progressBar" style="display:none;"></progress>
+  </div>
+</div>
+
+</header>
+<body class="bg-base-200">
+    <%= yield %>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+</body>
+<script>
+const input= document.getElementById('inp'); 
+const image = document.getElementById('progressBar');
+
+input.addEventListener('click', () => {
+  image.style.display = "block"; 
+});
+particlesJS("particles-js", {
+  "particles": {
+    "number": {
+      "value": 60,
+      "density": {
+        "enable": true,
+        "value_area": 800
+      }
+    },
+    "color": {
+      "value": "#ffffff"
+    },
+    "shape": {
+      "type": "circle",
+      "stroke": {
+        "width": 0,
+        "color": "#000000"
+      },
+      "polygon": {
+        "nb_sides": 5
+      },
+      "image": {
+        "src": "img/github.svg",
+        "width": 100,
+        "height": 100
+      }
+    },
+    "opacity": {
+      "value": 0.8,
+      "random": false,
+      "anim": {
+        "enable": false,
+        "speed": 1,
+        "opacity_min": 0.1,
+        "sync": false
+      }
+    },
+    "size": {
+      "value": 3,
+      "random": true,
+      "anim": {
+        "enable": false,
+        "speed": 40,
+        "size_min": 0.1,
+        "sync": false
+      }
+    },
+    "line_linked": {
+      "enable": true,
+      "distance": 160,
+      "color": "#ffffff",
+      "opacity": 0.4,
+      "width": 1
+    },
+    "move": {
+      "enable": true,
+      "speed": 3,
+      "direction": "none",
+      "random": false,
+      "straight": false,
+      "out_mode": "out",
+      "bounce": false,
+      "attract": {
+        "enable": false,
+        "rotateX": 600,
+        "rotateY": 1200
+      }
+    }
+  },
+  "interactivity": {
+    "detect_on": "canvas",
+    "events": {
+      "onhover": {
+        "enable": true,
+        "mode": "grab"
+      },
+      "onclick": {
+        "enable": true,
+        "mode": "push"
+      },
+      "resize": true
+    },
+    "modes": {
+      "grab": {
+        "distance": 140,
+        "line_linked": {
+          "opacity": 1
+        }
+      },
+      "bubble": {
+        "distance": 400,
+        "size": 40,
+        "duration": 2,
+        "opacity": 8,
+        "speed": 3
+      },
+      "repulse": {
+        "distance": 200,
+        "duration": 0.4
+      },
+      "push": {
+        "particles_nb": 4
+      },
+      "remove": {
+        "particles_nb": 2
+      }
+    }
+  },
+  "retina_detect": true
+});
+</script>
+<style>
+.bg-base-100 {
+    background-color: hsl(var(--b1) / 1);
+    color: white;
+}
+#particles-js {
+    width: 100%;    
+    height: 100%;    
+    background: #000000;
+    opacity: 0.4;  
+    z-index: -1; 
+  }
+  
+  body #particles-js {  
+    background-color: #1d232a;
+    position: absolute;
+    width: 100%;    
+    height: 100%;    
+    z-index: -1;   
+  }
+
+  /* Override <body> background */
+  body {  
+    position: absolute;
+    width: 100%;    
+    height: 100%;    
+    z-index: -1;   
+  }
+  footer {
+    border-top: 5px mediumspringgreen solid;
+    position: absolute;  
+  left: 0;
+  bottom: 0; 
+  width: 100%;
+  background-color: rgba(255,255,255,0.8); /* White transparent background */
+  z-index: 100; /* High z-index to overlay content*/
+}
+
+footer .container {
+  padding: 30px 30px; /* Increase padding */
+}
+  
+footer p {
+  font-size: 1.5rem; /* Increase font size */
+}
+html, body {
+  height: 100%; /* Make html and body full height */
+}
+
+body {
+  min-height: 100%; /* Account for short pages */  
+  overflow: hidden; /* Hide scrollbars */
+  position: relative;
+}
+
+
+</style>
+<footer>
+  <div class="footer bg-base-200 text-base-content">
+     <div class="container mx-auto flex flex-wrap...">
+       <p class="font-bold text-center text-white">
+         Made with ❤️ by Aviral Kaintura   
+       </p>
+     </div>
+   </div>
+</footer>
+
+</html>
